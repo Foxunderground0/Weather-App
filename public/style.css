@@ -1,0 +1,60 @@
+body {
+    background-color: #040f4d;
+    font-size: 4vmin;
+    font-family: 'Old Standard TT', serif;
+}
+.flexbox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    min-height: 520px;
+
+}
+
+.container{
+    margin: 2rem;
+    color: #f49f1c;
+    padding:  2rem 3rem;
+    border: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    text-align: center;
+    width: clamp(325px,30%,30%) ;
+}
+
+@keyframes fadeincontainer{
+    from {color: #f49e1c00;}
+    to {color: #f49f1c;}
+  }
+
+
+.anim {
+    animation-name: fadeincontainer;
+    animation-duration: 2s;
+}
+
+.center{
+    margin: 0;
+    position:relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: 0.4s;
+}
+
+.button{
+    font-family: 'Old Standard TT', serif;
+    margin-top: 5rem;
+    padding: 1rem 1rem;
+    background-color: #00000000;
+    border: 2px #f49f1c solid;
+    color: #f49f1c;
+    border-radius: 15px;
+    font-size: 4vmin;
+}
+
+.button:hover{
+    background-color: #f49f1c; /* Green */
+    color: #040f4d;
+}
