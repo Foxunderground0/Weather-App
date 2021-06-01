@@ -26,7 +26,7 @@
 		already_ran = true;
 		lat = String(position.coords.latitude);
 		lon = String(position.coords.longitude);
-		console.log(`Location: ${lat} ${lon}`);
+		//console.log(`Location: ${lat} ${lon}`);
 		document.getElementById('lat').innerText = `${document.getElementById('lat').innerText} ${lat.substring(0,6)}`;
 		document.getElementById('lon').innerText = `${document.getElementById('lon').innerText} ${lon.substring(0,6)}`;
 		
@@ -51,8 +51,8 @@
 
 		).then((res)=> {return res.json()});
 		
-		console.log(data);
-		console.log(data.name);
+		//console.log(data);
+		//console.log(data.name);
 		document.getElementById('min').innerText = `${document.getElementById('min').innerText} ${data.main.temp_min}`;
 		document.getElementById('current').innerText = `${document.getElementById('current').innerText} ${data.main.temp}`;
 		document.getElementById('max').innerText = `${document.getElementById('max').innerText} ${data.main.temp_max}`;
@@ -65,6 +65,7 @@
  </head>
 
  <body> <!--onLoad="initGeolocation();"-->
+<div class="main">
    <div class="flexbox">
 	   <div class="container" id="container1" style="display: none;">
 			<h1>Location</h1>
@@ -79,5 +80,10 @@
 		</div>	   
    </div>
    <button class="center button" onclick="initGeolocation();">Get Weather</button>
- </body>
+</div>
+<div class="footer">
+	<p>By: Foxunderground <a href="https://github.com/FoxUnderGround">(GitHub)</a></p>
+</div>
+ 
+</body>
 </html>
