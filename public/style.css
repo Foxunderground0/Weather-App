@@ -1,7 +1,11 @@
-body {
+html {
     background-color: #040f4d;
     font-size: 4vmin;
     font-family: 'Old Standard TT', serif;
+    color: #f49f1c;
+}
+.main{
+    
 }
 .flexbox{
     display: flex;
@@ -57,4 +61,24 @@ body {
 .button:hover{
     background-color: #f49f1c; /* Green */
     color: #040f4d;
+}
+
+.footer{
+    position: fixed;
+    background-color: #040f4d;
+    font-size: 2vh;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: #f49f1c;
+}
+a:hover{
+    text-decoration: underline;
+    color: #fff455;
+
 }
