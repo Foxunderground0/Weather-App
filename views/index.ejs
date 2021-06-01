@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+   	<script type="text/javascript">
+	 let already_ran = false;
+	 function initGeolocation()
+	 {
+		if(already_ran == false){
+		if( navigator.geolocation ){
+		   navigator.geolocation.getCurrentPosition( success, ()=>{alert("Location Permission not given")} );
+		}
+		else
+		{
+			alert("Sorry, your browser does not support geolocation services.");
+		}
+		} else {
+			alert("Already Ran")
+		}
+	 }
+
+	 function success(position)	 {
+
+		already_ran = true;
+		lat = String(position.coords.latitude);
+		lon = String(position.coords.longitude);
+		console.log(`Location: ${lat} ${lon}`);
+		document.getElementById('lat').innerText = `${document.getElementById('lat').innerText} ${lat.substring(0,6)}`;
+		document.getElementById('lon').innerText = `${document.getElementById('lon').innerText} ${lon.substring(0,6)}`;
+		
+		document.getElementById('container1').style = "";
+		document.getElementById('container2').style = "";
+		document.getElementById('container1').className += " anim";
+		document.getElementById('container2').className += " anim";
+		
+		getWeatherData(lat,lon);
+	 }
+	 async function getWeatherData(lat, lon){
+
+		let data = await fetch("/getweather", 
+		{
+		headers: {
+     		 'Accept': 'application/json',
+      		'Content-Type': 'application/json'
+    	},
+		method: "post",
+		body: JSON.stringify({lat: lat, lon: lon})
+		}
+
+		).then((res)=> {return res.json()});
+		
+		console.log(data);
+		console.log(data.name);
+		document.getElementById('min').innerText = `${document.getElementById('min').innerText} ${data.main.temp_min}`;
+		document.getElementById('current').innerText = `${document.getElementById('current').innerText} ${data.main.temp}`;
+		document.getElementById('max').innerText = `${document.getElementById('max').innerText} ${data.main.temp_max}`;
+		
+	 }
+	 
+	 
+	 
+   </script>    
+ </head>
+
+ <body> <!--onLoad="initGeolocation();"-->
+   <div class="flexbox">
+	   <div class="container" id="container1" style="display: none;">
+			<h1>Location</h1>
+			<h3 id="lat" class="">Latitude:</h3>
+			<h3 id="lon" class="">Longitude:</h3>
+	   </div>
+	   <div class="container" id="container2" style="display: none;">
+			<h1>Weather</h1>
+			<h3 id="min">Min:</h3>
+			<h3 id="current">Current:</h3>
+			<h3 id="max">Max:</h3>
+		</div>	   
+   </div>
+   <button class="center button" onclick="initGeolocation();">Get Weather</button>
+ </body>
+</html>
