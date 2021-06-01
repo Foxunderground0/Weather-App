@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http')
-const fetch = require("node-fetch");
 var app = express();
 var count = 0;
 
@@ -39,8 +38,8 @@ app.post('/getweather', function (req, res) {
 	}
 	);
   })
-
-var server = app.listen(process.env.PORT || 8081, function () {
+let port = process.env.PORT || 8081;
+var server = app.listen(port, function () {
 	var host = server.address().address
 	var port = server.address().port
 	console.log(`Example app listening at http://${host}:${port}`)
