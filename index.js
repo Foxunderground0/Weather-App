@@ -21,7 +21,7 @@ app.post('/getweather', function (req, res) {
 	let weather_data;
 	let data_buffer =[];
 	var buffer;
-	//console.log(req.body);
+	console.log(req.body);
 	http.get(`http://api.openweathermap.org/data/2.5/weather?lat=${req.body.lat}&lon=${req.body.lon}&units=metric&appid=235a00b3c6dc62cc5cd17446e4ac2fc9`, 
 	(response) => {
 		if (response.statusCode === 200) {
@@ -31,7 +31,7 @@ app.post('/getweather', function (req, res) {
 		 ).on('end', () => {
 		 buffer = Buffer.concat(data_buffer);
         	weather_data =  buffer.toString();
-			console.log(weather_data);
+			//console.log(weather_data);
 			res.send(weather_data);
 		}
 		 )}
