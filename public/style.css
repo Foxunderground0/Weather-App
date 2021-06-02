@@ -46,7 +46,7 @@ html {
 
 .animfadeoutbutton {
     animation-name: fadeoutbutton;
-    animation-duration: 0.5s ease-in-out;;
+    animation-duration: 0.5s;
 }
 
 .button{
