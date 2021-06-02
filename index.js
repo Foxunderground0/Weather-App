@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http')
 var app = express();
-var apikey ="235a00b3c6dc62cc5cd17446e4ac2fc9"
+var apikey =""
 /* 
 const readline = require('readline').createInterface({
 	input: process.stdin,

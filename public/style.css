@@ -16,15 +16,17 @@ html {
 }
 
 .container{
-    margin: 1.5rem;
+    margin: 1.2rem;
     color: #f49f1c;
-    padding:  1.5rem 2.5rem;
+    padding:  1rem 2rem;
     border: solid;
     border-width: 2px;
     border-radius: 10px;
     text-align: center;
-    width: clamp(325px,30%,30%) ;
+    width: clamp(9rem,25%,40%) ;
     margin-bottom: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @keyframes fadeincontainer{
@@ -44,7 +46,7 @@ html {
 
 .animfadeoutbutton {
     animation-name: fadeoutbutton;
-    animation-duration: 0.8s ease-in-out;;
+    animation-duration: 0.5s ease-in-out;;
 }
 
 .button{
@@ -61,7 +63,7 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.8s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .buttonhover:hover{
