@@ -39,7 +39,7 @@ html {
 
 .anim {
     animation-name: fadeincontainer;
-    animation-duration: 2s ease-in-out;;
+    animation-duration: 2s;
 }
 
 .animfadeoutbutton {

@@ -2,7 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http')
 var app = express();
-var apikey =""
+var apikey ="235a00b3c6dc62cc5cd17446e4ac2fc9"
+/* 
 const readline = require('readline').createInterface({
 	input: process.stdin,
 	output: process.stdout
@@ -13,7 +14,7 @@ const readline = require('readline').createInterface({
 	console.log(`Key Recived: ${key}`);
 	readline.close()
   })
-
+*/
 app.set("view engine", "ejs")
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -48,7 +49,7 @@ app.post('/getweather', function (req, res) {
 	}
 	);
   })
-  
+
 let port = process.env.PORT || 8081;
 var server = app.listen(port, function () {
 	var host = server.address().address
