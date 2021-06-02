@@ -3,17 +3,16 @@ html {
     font-size: 4vmin;
     font-family: 'Old Standard TT', serif;
     color: #f49f1c;
+    height: 100vh;
 }
 .main{
-    
-}
+ }
 .flexbox{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    min-height: 520px;
-
+    
 }
 
 .container{
@@ -25,6 +24,7 @@ html {
     border-radius: 10px;
     text-align: center;
     width: clamp(325px,30%,30%) ;
+    margin-bottom: 2rem;
 }
 
 @keyframes fadeincontainer{
@@ -32,35 +32,42 @@ html {
     to {color: #f49f1c;}
   }
 
+  @keyframes fadeoutbutton{
+    from {color: #f49f1c; border: 2px #f49f1c solid;}
+    to {color: #040f4d00; border: 2px #040f4d00 solid; background-color: #040f4d;}
+  }
 
 .anim {
     animation-name: fadeincontainer;
-    animation-duration: 2s;
+    animation-duration: 2s ease-in-out;;
 }
 
-.center{
-    margin: 0;
-    position:relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition-duration: 0.4s;
+.animfadeoutbutton {
+    animation-name: fadeoutbutton;
+    animation-duration: 0.8s ease-in-out;;
 }
 
 .button{
     font-family: 'Old Standard TT', serif;
-    margin-top: 5rem;
     padding: 1rem 1rem;
     background-color: #00000000;
     border: 2px #f49f1c solid;
     color: #f49f1c;
     border-radius: 15px;
     font-size: 4vmin;
+    
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s ease-in-out;
 }
 
-.button:hover{
+.buttonhover:hover{
     background-color: #f49f1c; /* Green */
     color: #040f4d;
+
 }
 
 .footer{

@@ -24,17 +24,22 @@
 	 function success(position)	 {
 
 		already_ran = true;
+		
+		document.getElementById('button').className = "center button animfadeoutbutton"; //This is the worst way to do this but it works :)
+		setTimeout(()=>{document.getElementById('button').style = "display:none;";},500);
+		
 		lat = String(position.coords.latitude);
 		lon = String(position.coords.longitude);
 		//console.log(`Location: ${lat} ${lon}`);
 		document.getElementById('lat').innerText = `${document.getElementById('lat').innerText} ${lat.substring(0,6)}`;
 		document.getElementById('lon').innerText = `${document.getElementById('lon').innerText} ${lon.substring(0,6)}`;
 		
+		setTimeout(()=>{
 		document.getElementById('container1').style = "";
 		document.getElementById('container2').style = "";
 		document.getElementById('container1').className += " anim";
 		document.getElementById('container2').className += " anim";
-		
+		},500);
 		getWeatherData(lat,lon);
 	 }
 	 async function getWeatherData(lat, lon){
@@ -53,6 +58,7 @@
 		
 		//console.log(data);
 		//console.log(data.name);
+		
 		document.getElementById('min').innerText = `${document.getElementById('min').innerText} ${data.main.temp_min}`;
 		document.getElementById('current').innerText = `${document.getElementById('current').innerText} ${data.main.temp}`;
 		document.getElementById('max').innerText = `${document.getElementById('max').innerText} ${data.main.temp_max}`;
@@ -79,7 +85,7 @@
 			<h3 id="max">Max:</h3>
 		</div>	   
    </div>
-   <button class="center button" onclick="initGeolocation();">Get Weather</button>
+   <button class="center button buttonhover" id="button" onclick="initGeolocation();">Get Weather</button> <!--The javascript completely modifies the classes, edit it there too-->
 </div>
 <div class="footer">
 	<p>By: Foxunderground <a href="https://github.com/FoxUnderGround">(GitHub)</a></p>
