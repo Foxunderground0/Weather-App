@@ -31,8 +31,8 @@
 		lat = String(position.coords.latitude);
 		lon = String(position.coords.longitude);
 		//console.log(`Location: ${lat} ${lon}`);
-		document.getElementById('lat').innerText = `${document.getElementById('lat').innerText} ${lat.substring(0,6)}`;
-		document.getElementById('lon').innerText = `${document.getElementById('lon').innerText} ${lon.substring(0,6)}`;
+		document.getElementById('lat').innerText = `${document.getElementById('lat').innerText} ${lat.substring(0,6)}°`;
+		document.getElementById('lon').innerText = `${document.getElementById('lon').innerText} ${lon.substring(0,6)}°`;
 		
 		setTimeout(()=>{
 		document.getElementById('container1').style = "";
@@ -58,10 +58,12 @@
 		
 		//console.log(data);
 		//console.log(data.name);
+		document.getElementById('loc').innerText = `${document.getElementById('loc').innerText} ${data.name}`;
 		
-		document.getElementById('min').innerText = `${document.getElementById('min').innerText} ${data.main.temp_min}`;
-		document.getElementById('current').innerText = `${document.getElementById('current').innerText} ${data.main.temp}`;
-		document.getElementById('max').innerText = `${document.getElementById('max').innerText} ${data.main.temp_max}`;
+		document.getElementById('min').innerText = `${document.getElementById('min').innerText} ${data.main.temp_min}°C`;
+		document.getElementById('current').innerText = `${document.getElementById('current').innerText} ${data.main.temp}°C`;
+		document.getElementById('max').innerText = `${document.getElementById('max').innerText} ${data.main.temp_max}°C`;
+		document.getElementById('weather').innerText = `${document.getElementById('weather').innerText} ${data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1)}`;
 		
 	 }
 	 
@@ -75,14 +77,16 @@
    <div class="flexbox">
 	   <div class="container" id="container1" style="display: none;">
 			<h1>Location</h1>
-			<h3 id="lat" class="">Latitude:</h3>
-			<h3 id="lon" class="">Longitude:</h3>
+			<h3 id="lat">Latitude:</h3>
+			<h3 id="lon">Longitude:</h3>
+			<h3 id="loc" class="wrap">Location:</h3>
 	   </div>
 	   <div class="container" id="container2" style="display: none;">
 			<h1>Weather</h1>
-			<h3 id="min">Min:</h3>
+			<h3 id="weather" class="wrap">Weather:</h3>
+			<h3 id="min">Minimum:</h3>
 			<h3 id="current">Current:</h3>
-			<h3 id="max">Max:</h3>
+			<h3 id="max">Maximum:</h3>
 		</div>	   
    </div>
    <button class="center button buttonhover" id="button" onclick="initGeolocation();">Get Weather</button> <!--The javascript completely modifies the classes, edit it there too-->
